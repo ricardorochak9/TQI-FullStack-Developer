@@ -59,9 +59,11 @@ a:hover {
     0% {
         background-position: 0% 80%;
     }
+
     50% {
         background-position: 80% 100%;
     }
+
     100% {
         background-position: 0% 80%;
     }
@@ -101,10 +103,12 @@ a:hover {
     top: 26px;
     transform: rotate(0);
 }
+
 .checkbox .trace:nth-child(2) {
     top: 46px;
     transform: rotate(0);
 }
+
 .checkbox .trace:nth-child(3) {
     top: 66px;
     transform: rotate(0);
@@ -133,8 +137,8 @@ a:hover {
     position: absolute;
     top: 0;
     right: 0;
-    width: 30%;
-    height: 35%;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -149,45 +153,45 @@ a:hover {
 }
 
 .menu-itens ul li a {
-    margin:  10px 0;
+    margin: 10px 0;
     color: black;
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 4px;
-    font-size: 40px;
+    font-size: 30px;
 }
 
 /* ANIMAÇÃO MENU */
 
-#toggle:checked + .checkbox .trace:nth-child(1) {
+#toggle:checked+.checkbox .trace:nth-child(1) {
     transform: rotate(45deg);
     background-color: blueviolet;
     top: 47px;
 }
 
-#toggle:checked + .checkbox .trace:nth-child(2) {
+#toggle:checked+.checkbox .trace:nth-child(2) {
     transform: translateX(-100px);
     width: 30px;
     visibility: hidden;
     opacity: 0;
 }
 
-#toggle:checked + .checkbox .trace:nth-child(3) {
+#toggle:checked+.checkbox .trace:nth-child(3) {
     transform: rotate(-45deg);
     background-color: blueviolet;
     top: 48px;
 }
 
-#toggle:checked + .checkbox {
+#toggle:checked+.checkbox {
     background-color: white;
 }
 
-#toggle:checked ~ .menu {
-    box-shadow: 0px 0px 0px 20vmax white;
+#toggle:checked~.menu {
+    box-shadow: 0px 0px 0px 100vmax white;
     z-index: 1;
 }
 
-#toggle:checked ~ .menu-itens {
+#toggle:checked~.menu-itens {
     visibility: visible;
     opacity: 1;
 }
@@ -195,7 +199,6 @@ a:hover {
 /* CARDs */
 
 .container {
-    z-index: 5;
     width: 100%;
     height: auto;
     display: flex;
@@ -203,6 +206,7 @@ a:hover {
     justify-content: space-between;
     align-items: center;
     margin: 3rem 0;
+    z-index: 5;
 }
 
 .card-container {
@@ -211,13 +215,15 @@ a:hover {
     align-items: center;
     justify-content: space-between;
     width: 90%;
+    border-top: 5px solid blue;
+
 }
 
 .card {
     z-index: 5;
     height: 300px;
     width: 400px;
-    margin: 3rem 0 0;
+    margin: 3rem 3rem;
     background-image: url('./room2.jpg');
     background-position: center;
     background-repeat: no-repeat;
@@ -239,7 +245,7 @@ a:hover {
     color: gray;
 }
 
-.card-wrapper { 
+.card-wrapper {
     z-index: 5;
     text-align: center;
     display: flex;
@@ -281,14 +287,65 @@ a:hover {
     filter: unset;
 }
 
-.card:hover > .card-wrapper::before {
+.card:hover>.card-wrapper::before {
     opacity: 1;
     width: 350px;
     height: 250px;
 }
 
-.card:hover > .card-wrapper p {
+.card:hover>.card-wrapper p {
     font-size: 14px;
     opacity: 1;
     visibility: visible;
+}
+
+/* FOOTER */
+
+.footer {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 800px) {
+    .social-media {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container {
+        margin-top: 0;
+    }
+
+    .card-container {
+        flex-direction: column;
+    }
+
+    .container .card-container:nth-child(1),
+    .container .card-container:nth-child(3) {
+        flex-direction: column-reverse;
+    }
+
+    .card {
+        height: 250px;
+        width: 250px;
+    }
+
+    .card-text {
+        width: 90%;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        text-align: center;
+        text-align: left;
+    }
+
+    .card:hover > .card-wrapper::before {
+        height: 190px;
+        width: 190px;
+    }
 }
